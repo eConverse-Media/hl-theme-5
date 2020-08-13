@@ -53,6 +53,24 @@ body {
     border-color: #f5f5f5;
 }
 
+/*** margins between sections ***/
+.margin-top-40 {
+    margin-top: 40px;
+}
+.margin-bottom-50 {
+    margin-bottom: 50px;
+}
+
+/*** custom bootstrap-style row ***/
+@media (min-width: 992px) {
+    .row-75 > .col-md-6:first-child {
+        width: 58%;
+    }
+    .row-75 > .col-md-6:last-child {
+        width: 42%;
+    }
+}
+
 /****** fonts ******/
 body,
 h1, h2, h3, h4, h5, h6,
@@ -79,6 +97,7 @@ h1, .h1 {
     color: #2B2B2B;
     padding-left: 12px;
     position: relative;
+    text-transform: uppercase;
 }
 .MPContentArea h2::before, 
 .MPContentArea .h2::before {
@@ -91,12 +110,18 @@ h1, .h1 {
     height: 24px;
 }
 h3, .h3,
-.HLLandingControl h3 a {
+.HLLandingControl h3 a,
+.ContentUserControl .HLLandingControl .Content h3 a,
+.HLLandingControl.HLEngagement h3 {
     font-weight: 600;
     font-size: 18px;
     line-height: 1.22;
     color: #3C3E3D;
     text-decoration: none;
+}
+a {
+    color: [SecondaryColor];
+    text-decoration: underline;
 }
 
 /* transitions */
@@ -114,12 +139,14 @@ button:focus {
 
 /*** buttons ***/
 .make-buttons em {
+    display: inline-block;
     margin: -5px;
 }
 .make-buttons em a {
     margin: 5px;
 }
-.make-buttons em a {
+.make-buttons em a,
+.HLLandingControl div[id*="More"] a {
     display: inline-block;
     font-style: normal;
     text-decoration: none;
@@ -129,10 +156,14 @@ button:focus {
     padding: 12px 20px;
     border: 1px solid;
     border-radius: 2px;
+    color: #fff;
+    border-color: [SecondaryColor];
+    background-color: [SecondaryColor];
 }
 .make-buttons.invert-button em a {
     color: #fff;
     border-color: #fff;
+    background-color: transparent;
 }
 .make-buttons.invert-button em a:hover,
 .make-buttons.invert-button em a:focus {
@@ -383,6 +414,133 @@ button:focus {
 .slick-arrow.next-arrow {
     right: 40px;
 }
+
+/****** landing controls ******/
+.ContentUserControl .HLLandingControl,
+.HLLandingControl .Content {
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+.HLLandingControl ul li {
+    border-bottom: 1px solid #F5F5F5;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.HLLandingControl h2,
+.HLLandingControl .heading h2 {
+    margin-top: 0;
+}
+.HLLandingControl a[id*="ProfileLink"] img,
+.HLLandingControl a[id*="lnkDisplay"] img {
+    border-radius: 2px;
+}
+.HLLandingControl .ByLine,
+.HLLandingControl h5 {
+    color: #4b4b4b;
+    font-size: 14px;
+    line-height: 1.14;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.HLLandingControl h5 a {
+    color: [PrimaryColor];
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(5, 43, 62, 0.15);
+    border-radius: 2px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+/*** all content list ***/
+.SearchResults.HLLandingControl .title-row img {
+    max-height: 55px;
+    max-width: 55px;
+}
+.HLLandingControl ul li .title-row .col-sm-2.col-md-2 {
+    width: 55px;
+    margin-right: 20px;
+    float: left;
+    padding: 0;
+}
+.HLLandingControl ul li .title-row .col-md-10.col-sm-10,
+.HLLandingControl ul li .title-row .col-md-7.col-sm-7 {
+    float: left;
+    width: calc(100% - 75px); 
+    padding: 0;
+}
+.HLLandingControl.SearchResults ul li .title-row .col-md-3.pull-right {
+    display: none;
+}
+
+/*** most active members ***/
+.HLEngagement ul li {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+}
+.HLEngagement ul li:last-child {
+    margin-bottom: 10px;
+}
+.HLEngagement ul li > a {
+    display: block;
+    border-radius: 2px;
+    border-bottom: 1px solid #f9f9f9;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.HLEngagement ul li .ByLine {
+    color: #7c7c7c;
+    font-size: 14px;
+    line-height: 1.14;
+}
+.HLEngagement ul li > a:hover,
+.HLEngagement ul li > a:focus {
+    background: [SecondaryColor];
+}
+.HLEngagement ul li > a:hover h3,
+.HLEngagement ul li > a:focus h3,
+.HLEngagement ul li > a:hover .ByLine,
+.HLEngagement ul li > a:focus .ByLine,
+.HLEngagement ul li > a:hover .points-label,
+.HLEngagement ul li > a:focus .points-label {
+    color: #fff;
+}
+.HLEngagement ul li > a .title-row {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 75%;
+}
+.HLEngagement ul li > a .content-row {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 25%;
+    text-align: right;
+}
+.HLEngagement ul li > a .content-row .col-md-3 {
+    display: none;
+}
+.HLEngagement ul li > a .content-row .col-md-9 {
+    padding: 0;
+    width: 100%;
+}
+.HLEngagement .points-label {
+    background: transparent;
+    color: [PrimaryColor];
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+
 
 /****** footer ******/
 #MPOuterMost.full #FOOTER {
