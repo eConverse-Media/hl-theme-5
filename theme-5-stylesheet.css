@@ -112,6 +112,34 @@ button:focus {
     transition: .3s;
 }
 
+/*** buttons ***/
+.make-buttons em {
+    margin: -5px;
+}
+.make-buttons em a {
+    margin: 5px;
+}
+.make-buttons em a {
+    display: inline-block;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.1875;
+    padding: 12px 20px;
+    border: 1px solid;
+    border-radius: 2px;
+}
+.make-buttons.invert-button em a {
+    color: #fff;
+    border-color: #fff;
+}
+.make-buttons.invert-button em a:hover,
+.make-buttons.invert-button em a:focus {
+    background-color: #fff;
+    color: [PrimaryColor];
+}
+
 /****** header ******/
 #HEADER {
     padding: 20px 0;
@@ -317,7 +345,44 @@ button:focus {
     line-height: 1.3;
 }
 
+/****** slider ******/
 
+.main-slide .HtmlContent {
+    background-color: rgba(60,62,61,0.5);
+    padding: 60px 50% 60px calc(50% - 600px);
+}
+.main-slide h1,
+.main-slide p {
+    color: #fff;
+}
+.main-slide h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.main-slide p {
+    line-height: 1.625;
+    margin-bottom: 20px;
+}
+
+/*** arrows ***/
+.slick-arrow {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 32px;
+    line-height: 2;
+    color: #fff;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.slick-arrow.prev-arrow {
+    left: 40px;
+}
+.slick-arrow.next-arrow {
+    right: 40px;
+}
 
 /****** footer ******/
 #MPOuterMost.full #FOOTER {
@@ -412,6 +477,11 @@ button:focus {
 }
 
 /****** responsive ******/
+@media (max-width: 1400px) {
+    .main-slide .HtmlContent {
+        padding-left: 100px;
+    }
+}
 @media (max-width: 1230px) {
     #searchColumn {
         margin-right: 15px;
@@ -421,6 +491,9 @@ button:focus {
     }
 }
 @media (max-width: 991px) {
+    .main-slide .HtmlContent {
+        padding-right: 100px;
+    }
     .footer-copyright,
     .footer-attribution {
         text-align: center;
@@ -464,5 +537,17 @@ button:focus {
     .footer-logo img {
         margin-left: auto;
         margin-right: auto;
+    }
+}
+@media (max-width: 650px) {
+    .slider .slick-arrow {
+        top: auto;
+        transform: none;
+        bottom: 20px;
+    }
+    .main-slide .HtmlContent {
+        padding-bottom: 80px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
