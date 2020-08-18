@@ -22,9 +22,44 @@ function handleLandingControls() {
         $(link).contents().unwrap();
         $(self).wrapInner('<a href="' + href + '" />');
     });
+
+    // handle blog images
+
+    $('.home .HLRecentBlogs ul li').each(function () {
+        var self = $(this);
+
+        handleAjaxCall(self);
+
+    });
+
+    // handle slider link
+
+    $('.blog-slider .HLRecentBlogs ul li').each(function () {
+        var self = $(this),
+            link = $(self).find('h3 a'),
+            href = $(link).attr('href');
+
+        $(self).find('.text-container').append('<span class="link-text">Read More</span>');
+        $(self).wrapInner('<a href="' + href + '" />');
+        $(link).contents().unwrap();
+    });
+
+    // handle event date blocks 
+    $('.HLLandingControl.HLEventList ul li').each(function () {
+        var self = $(this),
+            month = $(self).find('.date-block .calendar-month span').text();
+
+        month = month.substring(0, 3);
+        $(self).find('.date-block .calendar-month').text(month);
+    });
+}
+
+function handleSearchBox() {
+    $('.SearchInputs .form-control').attr('placeholder', 'Search...');
 }
 
 $(function () {
     handleFooter();
     handleLandingControls();
+    handleSearchBox();
 });
