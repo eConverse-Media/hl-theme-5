@@ -6,8 +6,8 @@ $(function () {
         fade: true,
         infinite: true,
         autoplay: true,
-        prevArrow: '<button type="button" class="slick-arrow prev-arrow"><i class="fal fa-arrow-left"></i></button>',
-        nextArrow: '<button type="button" class="slick-arrow next-arrow"><i class="fal fa-arrow-right"></i></button>'
+        prevArrow: '<button type="button" class="slick-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>'
     });
 
     $('.blog-slider .HLRecentBlogs ul').slick({

@@ -82,12 +82,6 @@ body {
     }
 }
 
-/*** margins on text ***/
-.no-h3-margin h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-}
-
 /*** backgrounds ***/
 .bg-grey {
     background: #f7f7f7;
@@ -102,6 +96,11 @@ body {
 .bg-secondary {
     background: [SecondaryColor];
     padding: 20px calc(50% - 600px);
+}
+.bg-grey > .col-md-12[class*="section"],
+.bg-secondary > .col-md-12[class*="section"] {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 @media (min-width: 992px) {
     .flex-align {
@@ -167,9 +166,20 @@ h3, .h3,
     color: #3C3E3D;
     text-decoration: none;
 }
+.HLLandingControl h3 a:hover,
+.HLLandingControl h3 a:focus,
+.ContentUserControl .HLLandingControl .Content h3 a:hover,
+.ContentUserControl .HLLandingControl .Content h3 a:focus {
+    text-decoration: underline;
+}
 a {
     color: [SecondaryColor];
     text-decoration: underline;
+}
+a:hover,
+a:focus {
+    color: [SecondaryColor];
+    text-decoration: none;
 }
 
 /* transitions */
@@ -213,6 +223,14 @@ button:focus {
     border-color: [SecondaryColor];
     background-color: [SecondaryColor];
 }
+.make-buttons em a:hover,
+.make-buttons em a:focus,
+.HLLandingControl div[id*="More"] a:hover,
+.HLLandingControl div[id*="More"] a:focus,
+.HLLandingControl div[id*="BottomLink"] a:hover,
+.HLLandingControl div[id*="BottomLink"] a:focus {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), [SecondaryColor];
+}
 .make-buttons.invert-button em a {
     color: #fff;
     border-color: #fff;
@@ -224,7 +242,65 @@ button:focus {
     color: [PrimaryColor];
 }
 
+/* default HL buttons */
+.btn:not(.dropdown-toggle) {
+	white-space: normal;
+}
+.btn {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    padding: 10px 15px;
+    border: 1px solid;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+.btn-sm {
+    padding: 5px 10px;
+}
+.btn-default {
+    background: #fff;
+    border-color: #f7f7f7;
+    color: #7c7c7c;
+}
+.btn-default:hover,
+.btn-default:focus {
+    background: #f7f7f7;
+    color: #7c7c7c;
+    border-color: #7c7c7c;
+}
+.btn-community-stats-static, 
+.btn-community-stats-static:hover {
+    padding: 5px;
+}
+.btn-success,
+.btn-primary,
+.btn-info {
+    color: #fff;
+    border: none;
+}
+.btn-success {
+    background: [SecondaryColor];
+}
+.btn-success:hover, 
+.btn-success:focus, 
+.btn-success:active, 
+.btn-success.active, 
+.open .dropdown-toggle.btn-success {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), [SecondaryColor];
+}
+.btn-primary {
+    background: [PrimaryColor];
+}
+.btn-primary:hover,
+.btn-primary:focus {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), [PrimaryColor];
+}
+
 /****** header ******/
+#MPOuterHeader {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03), 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
 #HEADER {
     padding: 20px 0;
 }
@@ -253,8 +329,9 @@ button:focus {
 	top: 0;
 }
 
-/*** top text links ***/
-#MPAuxNav ul.level1 li a {
+/*** top text links and login button ***/
+#MPAuxNav ul.level1 li a,
+#Welcome_LoginLink {
     font-weight: 700;
     font-size: 14px;
     line-height: 1.2;
@@ -263,6 +340,18 @@ button:focus {
     padding: 0;
     margin-right: 20px;
     border: none;
+}
+#Welcome_LoginLink {
+    margin-right: 0;
+    background: transparent;
+    border-radius: 0;
+    margin-top: 6px;
+}
+#MPAuxNav ul.level1 li a:hover,
+#MPAuxNav ul.level1 li a:focus,
+#Welcome_LoginLink:hover,
+#Welcome_LoginLink:focus {
+    text-decoration: underline;
 }
 
 /*** profile dropdown ***/
@@ -286,6 +375,9 @@ button:focus {
     max-height: 100% !important;
     width: auto;
 }
+.progress-bar-info {
+    background-color: [SecondaryColor];
+}
 
 /****** main nav ******/
 #MPOuterMost #NAV,
@@ -302,10 +394,14 @@ button:focus {
     line-height: 1.2;
     padding: 15px;
 }
+#NAV .navbar-default .navbar-nav>.open>a {
+    background: transparent;
+    color: #4b4b4b;
+}
 #NAV .navbar-default .navbar-nav>li>a:hover, #NAV .navbar-default .navbar-nav>li>a:focus,
 #NAV .navbar-default .navbar-nav>.active>a:hover, #NAV .navbar-default .navbar-nav>.active>a:focus,
 #NAV .navbar-default .navbar-nav>.disabled>a:hover, #NAV .navbar-default .navbar-nav>.disabled>a:focus,
-#NAV .navbar-default .navbar-nav>.open>a, #NAV .navbar-default .navbar-nav>.open>a:hover, #NAV .navbar-default #NAV .navbar-nav>.open>a:focus {
+#NAV .navbar-default .navbar-nav>.open>a:hover, #NAV .navbar-default #NAV .navbar-nav>.open>a:focus {
     background: transparent;
     color: [SecondaryColor];
 }
@@ -315,7 +411,8 @@ button:focus {
     border-bottom-color: inherit;
     border-top-color: inherit;
 }
-.navbar-default .navbar-nav>.dropdown>a:hover .caret, .navbar-default .navbar-nav>.dropdown>a:focus .caret {
+.navbar-default .navbar-nav>.dropdown>a:hover .caret, .navbar-default .navbar-nav>.dropdown>a:focus .caret,
+#NAV .navbar-default .navbar-nav>.open>a .caret, #NAV .navbar-default .navbar-nav>.open>a:hover .caret, #NAV .navbar-default #NAV .navbar-nav>.open>a:focus .caret {
     border-top-color: [SecondaryColor];
     border-bottom-color: [SecondaryColor];
 }
@@ -491,11 +588,15 @@ button:focus {
     padding: 0;
     font-size: 32px;
     line-height: 2;
-    color: #fff;
+    color: #dfdfdf;
     position: absolute;
     z-index: 10;
     top: 50%;
     transform: translateY(-50%);
+}
+.slick-arrow:hover,
+.slick-arrow:focus {
+    color: #fff;
 }
 .slick-arrow.prev-arrow {
     left: 40px;
@@ -504,9 +605,27 @@ button:focus {
     right: 40px;
 }
 
+/****** search section ******/
+.search-text h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+.search-text {
+    background-size: auto 100%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 /****** tiles ******/
 .tiles > .col-md-12 {
     display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
 }
 .tile {
     flex-grow: 0;
@@ -549,7 +668,7 @@ button:focus {
 }
 
 /*** icons ***/
-.tile.icon > .HtmlContent > a::before {
+.tile > .HtmlContent > a::before {
     font-family: 'Font Awesome 5 Pro';
     font-size: 64px;
     line-height: 1;
@@ -557,18 +676,14 @@ button:focus {
     display: block;
     margin-bottom: 20px;
     font-weight: 300;
+    content: '\f500';
 }
 .tile.primary > .HtmlContent > a::before {
     color: #fff;
+    content: '\f4b6';
 }
-.tile.icon.users > .HtmlContent > a::before {
-    content: '\f500';
-}
-.tile.icon.radar > .HtmlContent > a::before {
-    content: '\e024';
-}
-.tile.icon > .HtmlContent > a:hover::before,
-.tile.icon > .HtmlContent > a:focus::before {
+.tile > .HtmlContent > a:hover::before,
+.tile > .HtmlContent > a:focus::before {
     color: #fff;
 }
 
@@ -613,6 +728,26 @@ button:focus {
     border-radius: 2px;
     margin-left: 10px;
     text-decoration: none;
+    position: relative;
+}
+.HLLandingControl h5 a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: [SecondaryColor];
+    opacity: 0;
+}
+.HLLandingControl h5 a:hover,
+.HLLandingControl h5 a:focus {
+    color: [SecondaryColor];
+    background: transparent;
+}
+.HLLandingControl h5 a:hover::before,
+.HLLandingControl h5 a:focus::before {
+    opacity: 0.15;
 }
 
 /*** handling images + titles ***/
@@ -1085,6 +1220,14 @@ button:focus {
     }
     .bg-grey,
     .bg-secondary {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media (max-width: 992px) {
+    .row-wide div[class*='section'],
+    .bg-grey div[class*='section'],
+    .bg-secondary div[class*='section'] {
         padding-left: 15px;
         padding-right: 15px;
     }
