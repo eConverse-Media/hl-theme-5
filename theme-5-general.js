@@ -25,16 +25,16 @@ function handleLandingControls() {
 
     // handle blog images
 
-    $('.home .HLRecentBlogs ul li').each(function () {
+    $('.home .HLRecentBlogs ul li, .featured-blog .HLRecentBlogs ul li').each(function () {
         var self = $(this);
 
         handleAjaxCall(self);
 
     });
 
-    // handle slider link
+    // handle blog link
 
-    $('.blog-slider .HLRecentBlogs ul li').each(function () {
+    $('.blog-slider .HLRecentBlogs ul li, .featured-blog .HLRecentBlogs ul li').each(function () {
         var self = $(this),
             link = $(self).find('h3 a'),
             href = $(link).attr('href');
