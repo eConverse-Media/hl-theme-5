@@ -350,6 +350,9 @@ button:focus {
 #Logo {
     float: left;
 }
+#Logo img {
+    max-height: 55px;
+}
 #MPheader > .row:first-child {
     float: right;
 }
