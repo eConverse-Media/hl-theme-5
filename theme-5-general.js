@@ -58,8 +58,13 @@ function handleSearchBox() {
     $('.SearchInputs .form-control').attr('placeholder', 'Search...');
 }
 
+function handlePageTitles() {
+    $('#PageTitleH1').wrapInner('<span class="title-text" />');
+}
+
 $(function () {
     handleFooter();
     handleLandingControls();
     handleSearchBox();
+    handlePageTitles();
 });
