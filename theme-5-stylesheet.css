@@ -333,6 +333,7 @@ button:focus {
 /****** header ******/
 #MPOuterHeader {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03), 0px 0px 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
 }
 #HEADER {
     padding: 20px 0;
