@@ -178,6 +178,10 @@ h3, .h3,
 .ideation-home .ideation-title h3 a:focus {
     text-decoration: underline;
 }
+.ContentUserControl .HLLandingControl h5, 
+.ContentUserControl .HLLandingControl h4 {
+    color: #4b4b4b;
+}
 a {
     color: [SecondaryColor];
     text-decoration: underline;
@@ -425,6 +429,16 @@ button:focus {
 }
 .progress-bar-info {
     background-color: [SecondaryColor];
+}
+
+/* profile dropdown button */
+.Welcome .btn.btn-default.imgButton {
+    background: [PrimaryColor];
+    color: #fff;
+    font-size: 14px;
+}
+.imgButton > img {
+    display: none;
 }
 
 /****** main nav ******/
@@ -860,6 +874,7 @@ button:focus {
     display: block;
     border-radius: 2px;
     border-bottom: 1px solid #f9f9f9;
+    box-shadow: 0px 1px 2px #E7E8EC, 0px 4px 15px rgba(231, 232, 236, 0.3);
     padding: 20px;
     display: flex;
     align-items: center;
@@ -873,6 +888,7 @@ button:focus {
 .HLEngagement ul li > a:hover,
 .HLEngagement ul li > a:focus {
     background: [SecondaryColor];
+    box-shadow: 0px 1px 2px #E7E8EC, 0px 4px 15px rgba(231, 232, 236, 1);
 }
 .HLEngagement ul li > a:hover h3,
 .HLEngagement ul li > a:focus h3,
@@ -1124,11 +1140,18 @@ button:focus {
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: 50%;
+    border: none;
+}
+.home .HLEventList ul li > a {
+    display: block;
     box-shadow: 0px 1px 2px #E7E8EC, 0px 4px 15px rgba(231, 232, 236, 0.3);
     margin-left: 15px;
     margin-right: 15px;
     padding: 20px 20px 20px 0;
-    border: none;
+}
+.home .HLEventList ul li > a:hover,
+.home .HLEventList ul li > a:focus {
+    box-shadow: 0px 1px 2px #E7E8EC, 0px 4px 15px rgba(231, 232, 236, 1);
 }
 .HLEventList .timeAgoFormat,
 .HLEventList div[id*="LocationPanel"] {
@@ -1140,7 +1163,9 @@ button:focus {
     margin-bottom: 8px;
 }
 .HLEventList .timeAgoFormat::before,
-.HLEventList div[id*="LocationPanel"]::before {
+.HLEventList div[id*="LocationPanel"]::before,
+.glyphicon-calendar::before,
+.glyphicon-globe::before {
     color: [SecondaryColor];
     font-family: 'Font Awesome 5 Pro';
     margin-right: 8px;
@@ -1148,10 +1173,12 @@ button:focus {
     line-height: 22px;
     font-weight: 300;
 }
-.HLEventList .timeAgoFormat::before {
+.HLEventList .timeAgoFormat::before,
+.glyphicon-calendar::before {
     content: '\f017';
 }
-.HLEventList div[id*="LocationPanel"]::before {
+.HLEventList div[id*="LocationPanel"]::before,
+.glyphicon-globe::before {
     content: '\f3c5';
     margin-right: 10px;
     margin-left: 2px;
@@ -1537,22 +1564,6 @@ a.label.label-search-tag::before,
     position: relative;
     display: block;
 }
-#PageTitleH1 .title-text::after {
-    font-family: 'Font Awesome 5 Pro';
-    font-weight: 300;
-    color: rgba(255,255,255,0.1);
-    font-size: 96px;
-    line-height: 1;
-    position: absolute;
-    top: -20px;
-    margin-left: -35px;
-}
-.community #PageTitleH1 .title-text::after {
-    content: '\f0c0';
-}
-.ideation-page #PageTitleH1 .title-text::after {
-    content: '\f0eb';
-}
 
 /****** ideation ******/
 
@@ -1725,6 +1736,7 @@ a.label.label-search-tag::before,
 #MPOuterMost.full #FOOTER {
     max-width: 100%;
     padding: 0;
+    background-color: #3C3E3D;
 }
 #MPCopyright,
 #MPFooterLink {
@@ -1739,12 +1751,11 @@ a.label.label-search-tag::before,
     margin-top: 0;
     font-weight: 700;
     font-size: 16px;
-    line-height: 1.1875;
+    line-height: 1;
     color: [SecondaryColor];
     margin-bottom: 8px;
 }
 .footer-top-row {
-    background-color: #3C3E3D;
     padding-top: 40px;
     padding-bottom: 40px;
     font-size: 15px;
@@ -1772,16 +1783,18 @@ a.label.label-search-tag::before,
 }
 .footer-top-row > div:first-child {
     flex-basis: 30%;
-    align-self: center;
 }
 .footer-top-row > div:nth-child(2) {
     flex-basis: 40%;
+}
+.footer-logo {
+    padding-top: 5px;
 }
 .footer-logo img {
     width: 210px;
 }
 .footer-bottom-row {
-    background-color: #000;
+    background-color: rgba(0,0,0,0.2);
     padding-top: 12px;
     padding-bottom: 12px;
     font-size: 12px;
@@ -1806,7 +1819,7 @@ a.label.label-search-tag::before,
 }
 .footer-social-icon {
     display: inline-block;
-    margin-right: 6px;
+    margin-right: 10px;
 }
 .footer-social a:hover,
 .footer-social a:focus {

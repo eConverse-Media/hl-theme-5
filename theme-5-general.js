@@ -44,13 +44,18 @@ function handleLandingControls() {
         $(link).contents().unwrap();
     });
 
-    // handle event date blocks 
+    // handle event date blocks and links
     $('.HLLandingControl.HLEventList ul li').each(function () {
         var self = $(this),
+            link = $(self).find('h3 a'),
+            href = $(link).attr('href'),
             month = $(self).find('.date-block .calendar-month span').text();
 
         month = month.substring(0, 3);
         $(self).find('.date-block .calendar-month').text(month);
+
+        $(self).wrapInner('<a href="' + href + '" />');
+        $(link).contents().unwrap();
     });
 }
 
@@ -62,9 +67,21 @@ function handlePageTitles() {
     $('#PageTitleH1').wrapInner('<span class="title-text" />');
 }
 
+function handleProfileDropdown() {
+    var name = $('#ProfileContainer h4').text(),
+        initial;
+
+    name = $.trim(name);
+
+    initial = name.charAt(0);
+
+    $('.imgButton').text(initial);
+}
+
 $(function () {
     handleFooter();
     handleLandingControls();
     handleSearchBox();
     handlePageTitles();
+    handleProfileDropdown();
 });
