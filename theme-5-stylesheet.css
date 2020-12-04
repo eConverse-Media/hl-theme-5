@@ -753,22 +753,18 @@ button:focus {
 }
 
 /*** icons ***/
-.tile > .HtmlContent > a::before {
-    font-family: 'Font Awesome 5 Pro';
+.tile > .HtmlContent > a i {
     font-size: 64px;
     line-height: 1;
     color: [SecondaryColor];
     display: block;
     margin-bottom: 20px;
-    font-weight: 300;
-    content: '\f500';
 }
-.tile.primary > .HtmlContent > a::before {
+.tile.primary > .HtmlContent > a i {
     color: #fff;
-    content: '\f4b6';
 }
-.tile > .HtmlContent > a:hover::before,
-.tile > .HtmlContent > a:focus::before {
+.tile > .HtmlContent > a:hover i,
+.tile > .HtmlContent > a:focus i {
     color: #fff;
 }
 
